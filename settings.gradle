@@ -1,2 +1,3 @@
 include ':android-app'
-rootProject.name='androidApp'
+include ':shared'
+rootProject.name='reakt'

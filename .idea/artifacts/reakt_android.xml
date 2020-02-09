@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="reakt-android">
+    <output-path>$PROJECT_DIR$/reakt/build/libs</output-path>
+    <root id="archive" name="reakt-android.jar">
+      <element id="module-output" name="reakt-reakt_androidMain" />
+    </root>
+  </artifact>
+</component>
