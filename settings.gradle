@@ -1,3 +1,4 @@
 include ':androidApp'
 include ':shared'
+include ':reakt-core'
 rootProject.name='reakt'
