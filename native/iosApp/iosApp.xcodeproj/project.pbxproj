@@ -13,7 +13,23 @@
 		8427087023F0AF62000A3D1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8427086E23F0AF62000A3D1B /* Main.storyboard */; };
 		8427087223F0AF63000A3D1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8427087123F0AF63000A3D1B /* Assets.xcassets */; };
 		8427087523F0AF63000A3D1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8427087323F0AF63000A3D1B /* LaunchScreen.storyboard */; };
+		8427087E23F0B051000A3D1B /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8427087C23F0B03F000A3D1B /* shared.framework */; };
+		8427087F23F0B051000A3D1B /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8427087C23F0B03F000A3D1B /* shared.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8427088023F0B051000A3D1B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8427087F23F0B051000A3D1B /* shared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8427086523F0AF62000A3D1B /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +40,7 @@
 		8427087123F0AF63000A3D1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8427087423F0AF63000A3D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8427087623F0AF63000A3D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8427087C23F0B03F000A3D1B /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = "../../shared/build/xcode-frameworks/shared.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8427087E23F0B051000A3D1B /* shared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +58,7 @@
 		8427085C23F0AF62000A3D1B = {
 			isa = PBXGroup;
 			children = (
+				8427087C23F0B03F000A3D1B /* shared.framework */,
 				8427086723F0AF62000A3D1B /* iosApp */,
 				8427086623F0AF62000A3D1B /* Products */,
 			);
@@ -74,9 +93,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8427087923F0AF63000A3D1B /* Build configuration list for PBXNativeTarget "iosApp" */;
 			buildPhases = (
+				8427088123F0B0A6000A3D1B /* ShellScript */,
 				8427086123F0AF62000A3D1B /* Sources */,
 				8427086223F0AF62000A3D1B /* Frameworks */,
 				8427086323F0AF62000A3D1B /* Resources */,
+				8427088023F0B051000A3D1B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +153,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8427088123F0B0A6000A3D1B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$SRCROOT/../../shared/build/xcode-frameworks\"\n./gradlew :shared:packForXCode -PXCODE_CONFIGURATION=${CONFIGURATION}\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8427086123F0AF62000A3D1B /* Sources */ = {
@@ -285,6 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../shared/build/xcode-frameworks";
 				INFOPLIST_FILE = iosApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +344,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../shared/build/xcode-frameworks";
 				INFOPLIST_FILE = iosApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
