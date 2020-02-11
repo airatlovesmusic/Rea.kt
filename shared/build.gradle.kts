@@ -23,7 +23,6 @@ kotlin {
 
     sourceSets["commonMain"].dependencies {
         api ("org.jetbrains.kotlin:kotlin-stdlib-common")
-        implementation (project(":reakt-core"))
     }
 
     sourceSets["androidMain"].dependencies {
