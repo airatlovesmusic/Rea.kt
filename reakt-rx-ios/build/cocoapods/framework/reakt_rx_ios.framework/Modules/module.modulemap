@@ -1,0 +1,6 @@
+framework module reakt_rx_ios {
+  umbrella header "dummy.h"
+
+  export *
+  module * { export * }
+}
