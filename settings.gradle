@@ -1,0 +1,6 @@
+include ':androidApp'
+include ':shared'
+include ':reakt-core'
+include ':reakt-rx-android'
+include ':reakt-rx-ios'
+rootProject.name='reakt'
